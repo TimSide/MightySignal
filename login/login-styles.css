@@ -1,0 +1,297 @@
+/*================================================*/
+/* Basics */
+
+* {
+    box-sizing: border-box;
+    font-size: 7px;
+    font-family: "Open Sans", sans-serif;
+    letter-spacing: 0.3px;
+
+    /*outline: 1px solid seagreen;*/
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.elephant, .logo {
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer */
+    -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
+main {
+    display: flex;
+    min-height: 50vh;
+    overflow: hidden;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/*================================================*/
+/* Left sidebar */
+
+main > aside {
+    padding: 29px 30px 15px;
+    min-width: 250px;
+    min-height: 100vh;
+    flex-basis: 33.3%;
+    /*overflow: auto;*/
+}
+
+main > aside > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    max-height: 45%;
+
+    background-color: white;
+}
+
+main > aside > section > div {
+    margin-top: 15.9vh;
+    margin-bottom: -5px;
+}
+
+main > aside > section > .logo {
+    margin-left: -3px;
+    width: 12.6vw;
+    min-width: 12.6vw;
+}
+
+main > aside > section > div p {
+    margin-left: 1px;
+    margin-bottom: 1.5vh;
+
+    font-size: 1.43vw;
+    letter-spacing: 0.27px;
+}
+
+main > aside > section > div > p:last-child {
+    bottom: -14px;
+    font-size: 1.22vw;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+main > aside > section > div > p > a {
+    font-size: 1.22vw;
+    color: #0393dd;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*================================================*/
+/* Buttons */
+
+button {
+    padding: 0;
+    margin-bottom: 0.75vw;
+
+    width: 99%;
+    height: 3.6vw;
+
+    border: 0;
+    border-radius: 0.3vh;
+
+    font-size: 1.2vw;
+
+    color: white;
+    background-color: #2db6d8;
+
+    outline: none;
+}
+
+button:hover {
+    background-color: #209ab8;
+}
+
+button > i {
+    left: -6px;
+    font-size: 1.4vw;
+    position: relative;
+}
+
+/*================================================*/
+/* Right sidebar */
+
+main > section {
+    height: 100vh;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+
+    background-color: #242b31;
+
+    overflow: hidden;
+    position: relative;
+}
+
+main > section > .particles {
+    border: 1px solid red;
+    position: absolute;
+    
+    width: 100%;
+    height: 100%;
+
+    /*z-index: 1;*/
+}
+
+.particles:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    background: linear-gradient(55deg, transparent, #242b31 42%, #242b31 58%, transparent);
+    background: -moz-linear-gradient(55deg, transparent, #242b31 42%, #242b31 58%, transparent); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(transparent), color-stop(42%, #242b31), color-stop(58%, #242b31), color-stop(transparent)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(55deg, transparent, #242b31 42%, #242b31 58%, transparent); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(55deg, transparent, #242b31 42%, #242b31 58%, transparent); /* opera 11.10+ */
+    background: -ms-linear-gradient(55deg, transparent, #242b31 42%, #242b31 58%, transparent); /* ie10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='transparent', endColorstr='transparent',GradientType=1 ); /* ie6-9 */
+}
+
+/*================================================*/
+/* Elephant */
+
+main > section > .elephant {
+    top: -11.4vh;
+    left: 5.3vh;
+
+    align-self: center;
+
+    width: 65.5vmin;
+    height: 63.5vmin;
+    max-width: 80%;
+
+    position: relative;
+    z-index: 10;
+
+    pointer-events: none;
+
+    animation: pulsing 3s infinite;
+    -webkit-animation: pulsing 3s infinite;
+}
+
+@keyframes pulsing {
+    25% {
+        transform: scale(0.98, 0.98);
+        -webkit-transform: scale(0.98, 0.98);
+    }
+    50% {
+        transform: scale(1.0, 1.0);
+        -webkit-transform: scale(1.0, 1.0);
+    }
+    75% {
+        transform: scale(0.98, 0.98);
+        -webkit-transform: scale(0.98, 0.98);
+    }
+}
+
+@-webkit-keyframes pulsing {
+    25% {
+        transform: scale(0.98, 0.98);
+        -webkit-transform: scale(0.98, 0.98);
+    }
+    50% {
+        transform: scale(1.0, 1.0);
+        -webkit-transform: scale(1.0, 1.0);
+    }
+    75% {
+        transform: scale(0.98, 0.98);
+        -webkit-transform: scale(0.98, 0.98);
+    }
+}
+
+/*================================================*/
+/* Media queries */
+
+@media screen and (max-width: 1024px) {
+    main {
+        display: block;
+        overflow: auto;
+    }
+
+    main > section {
+        display: none;
+    }
+
+    main > aside {
+        max-width: 80%;
+        padding-right: 0;
+        padding-left: 0;
+        padding-top: 5vh;
+        margin: 0 auto;
+
+        height: 100vh;
+    }
+
+    main > aside > section > .logo {
+        width: 30vw;
+        min-width: 0;
+    }
+
+    main > aside > section > div {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 2vh;
+    }
+
+    main > aside > section > div > p:last-child {
+        bottom: 0;
+    }
+
+    button {
+        margin-bottom: 10px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    button > i,
+    main > aside > section > div p,
+    main > aside > section > div > p:last-child,
+    main > aside > section > div > p > a {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    main > aside {
+        padding-top: 29px;
+    }
+
+    main > aside > section > .logo {
+        width: 150px;
+        min-width: 0;
+    }
+
+    button {
+        margin-bottom: 10px;
+        height: 50px;
+        font-size: 14px;
+    }
+
+    button > i,
+    main > aside > section > div p,
+    main > aside > section > div > p:last-child,
+    main > aside > section > div > p > a {
+        font-size: 14px;
+    }
+}
